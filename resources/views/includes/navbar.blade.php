@@ -17,14 +17,42 @@
     </div>
     <div class="header__content__auth hMobile">
         <ul class="header__content__auth-list">
+            
             <li class="header__content__auth-item">
-                <a class="text-header" href="./login.html">Đăng nhập</a>
+                <?php 
+                    $name = Session::get('name');
+                    if($name){
+                       
+                ?>
+                        <a class="text-header" href="{{ route('home') }}">
+                            {{$name}} &nbsp;
+
+                        </a>
+                        <span class="coin">{{5000}}<i class="fab fa-bitcoin"></i></span>
+                <?php 
+                    }else{
+                        ?>
+                        <a class="text-header" href="{{ route('login')}}">Đăng nhập</a>
+                <?php
+                    }
+                ?>
             </li>
             <li class="header__content__auth-item item__senpai">
                 |
             </li>
             <li class="header__content__auth-item">
-                <a class="text-header" href="./register.html">Đăng ký</a>
+                <?php 
+                    $name = Session::get('name');
+                    if($name){
+                ?>
+                        <a class="text-header" href="{{ route('logout') }}">{{ 'Đăng xuất' }}</a>
+                <?php 
+                    }else{
+                        ?>
+                        <a class="text-header" href="{{ route('register') }}">Đăng ký</a>
+                <?php
+                    }
+                ?>
             </li>
         </ul>
     </div>

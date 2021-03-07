@@ -9,6 +9,7 @@ class HomeController extends Controller
 {
     public function index(){
     	$data = Course::all();
+        
 
     	return view('app.home', ['courses'=> $data]);
     }

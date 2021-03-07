@@ -22,6 +22,16 @@ Route::get('/detail/{id}', 'HomeController@detail')->name('detail');
 // test
 Route::get('/test', 'AdminController@test');
 
+//Auth
+Route::get('/login', 'AuthHNController@getLogin')->name('login');
+Route::get('/register', 'AuthHNController@getRegister')->name('register');
+Route::get('/logout', 'AuthHNController@getLogout')->name('logout');
+Route::get('/reset-pass', 'AuthHNController@getReset')->name('reset');
+//Auth save
+Route::post('/post-login', 'AuthHNController@postLogin')->name('postLogin');
+Route::post('/post-register', 'AuthHNController@postRegister')->name('postRegister');
+Route::post('/post-reset-pass', 'AuthHNController@postReset')->name('postReset');
+
 Route::group(['prefix' => 'admin'], function(){
 	Route::get('/','AdminController@dashboard')->name('dashboard');
 	Route::resources([

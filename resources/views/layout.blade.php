@@ -14,11 +14,12 @@
 
 
     {{-- FOOTER --}}
+    
     <footer>
             <div class="footer m-w mg-at">
                 <div class="footer__col-1 col-3 grid">
                     <p class="footer__col-logo">
-                        <a href="./index.html">
+                        <a href="{{ route('home') }}">
                         <img src="./img/logo.png" alt=""></a>
                     </p>
                     <p class="footer__col-desc">I-TECH là nơi học lập trình miễn phí.</p>
@@ -102,21 +103,35 @@
                     </span>
                 </header>
                 <ul class="menu__mobile__list">
+            <?php 
+                $name = Session::get('name');
+                if($name){
+            ?>
+                    <li class="ss-logout">
+                        <span><i class="fas fa-sign-out-alt"></i></span>
+                        <a href="{{ route('logout') }}">Đăng xuất</a>
+                    </li>
+            <?php 
+                }else{
+            ?>
                     <li>
                         <span><i class="fas fa-sign-in-alt"></i></span>
-                        <a href="./login.html">Đăng nhập</a>
+                        <a href="{{ route('login') }}">Đăng nhập</a>
                     </li>
                     <li>
                         <span><i class="fas fa-user-plus"></i></span>
-                        <a href="./register.html">Đăng ký</a>
+                        <a href="{{ route('register') }}">Đăng ký</a>
                     </li>
+            <?php
+                }
+            ?>
                     <li>
                         <span><i class="fas fa-home"></i></span>
-                        <a href="./index.html">Trang chủ</a>
+                        <a href="{{ route('home') }}">Trang chủ</a>
                     </li>
                     <li>
                         <span><i class="fas fa-book"></i></span>
-                        <a href="./course.html">Khoá học</a></li>
+                        <a href="{{ route('course') }}">Khoá học</a></li>
                 </ul>
             </div>     
         </div>

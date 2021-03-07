@@ -122,6 +122,10 @@
 .header__content__nav-item{
     padding: 0 15px;
 }
+.header__content__auth-item .coin{
+    color: yellow;
+    font-weight: bold;
+}
 .text-header{
     color: var(--text-white);
     text-decoration: none;
@@ -440,10 +444,15 @@ footer{
 .menu__mobile__list{
     margin: 18px 0;
     list-style-type: none;
+    display: flex;
+    flex-direction: column;
 }
 .menu__mobile__list li{
     display: flex;
     padding: 20px;
+}
+.menu__mobile__list .ss-logout{
+    order: 1;
 }
 .menu__mobile__list span{
     width: 35px;
