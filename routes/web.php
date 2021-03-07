@@ -13,6 +13,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/index.html', 'HomeController@index')->name('home');
+
+Route::get('/course', 'HomeController@course')->name('course');
+Route::get('/detail/{id}', 'HomeController@detail')->name('detail');
+
+
+Route::group(['prefix' => 'admin'], function(){
+	Route::get('/','AdminController@dashboard')->name('admin.dashboard');
+	Route::resources([
+		'category' => 'CategoryController',
+		'course' => 'CourseController',
+		'account' => 'AcountController',
+	]);
 });
+// Route::group(['prefix' => 'account'], function(){
+// 	Route::get('/', 'AcountController@index')->name('account');
+// });
