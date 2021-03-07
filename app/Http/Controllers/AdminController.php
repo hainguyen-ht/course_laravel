@@ -8,6 +8,11 @@ class AdminController extends Controller
 {
     public function dashboard()
     {
-    	# code...
+    	return view('admin_layout');
+    }
+
+
+    public function test(){
+    	return view('admin.includes.sidebar');
     }
 }

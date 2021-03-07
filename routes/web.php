@@ -15,14 +15,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/index.html', 'HomeController@index')->name('home');
 
 Route::get('/course', 'HomeController@course')->name('course');
 Route::get('/detail/{id}', 'HomeController@detail')->name('detail');
 
+// test
+Route::get('/test', 'AdminController@test');
 
 Route::group(['prefix' => 'admin'], function(){
-	Route::get('/','AdminController@dashboard')->name('admin.dashboard');
+	Route::get('/','AdminController@dashboard')->name('dashboard');
 	Route::resources([
 		'category' => 'CategoryController',
 		'course' => 'CourseController',
